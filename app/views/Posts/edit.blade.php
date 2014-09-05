@@ -1,0 +1,1 @@
+/Users/thawheinthit/Sites/practise.dev/app/views/Posts/edit.blade.php
