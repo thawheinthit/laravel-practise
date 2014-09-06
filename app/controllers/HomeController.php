@@ -22,11 +22,19 @@ class HomeController extends BaseController {
 		);
 		if ( Auth::attempt($credentials)) {
 
-			// Incase need to redirect separately	
-			// if(Auth::user()->role == 'admin') {
-			// 	return Redirect::to('admin/dashboard');
-			// }
-			return Redirect::to('dishmenu');
+			# Redirect separately	
+			if(Auth::user()->role == 'user') {
+				return Redirect::to('/dishes/list');
+			}
+
+			if(Auth::user()->role == 'admin') {
+				return Redirect::to('/admin/users/list');
+			}
+
+			if(Auth::user()->role == 'delivery') {
+				return Redirect::to('/deliveries/list');
+			}
+			
 		} else {
 			$message = 'username or password is invalid!';
 			$msgType = 'danger';
@@ -53,22 +61,21 @@ class HomeController extends BaseController {
     {
     	$user = new User;
 		
-		// Create the user no matter what
+		# Create the user no matter what
 		$user = User::create(array(
-			'name' => Input::get('inputUsername'),	
+			'username' => Input::get('inputUsername'),	
 			'contact_number' => Input::get('inputContactNumber'),
-			'password' => Hash::make(Input::get('inputPassword')),
-			'role' => 'user'
+			'password' => Hash::make(Input::get('inputPassword'))
 		));
 			
-			// Go to login page
-			if (!$user) {
-				return Redirect::to('admin/dashboard');			
-			} else {
-				$message = 'username or password is invalid!';
-				$msgType = 'danger';
-				$msgArr = array('message','msgType');
-				return Redirect::back()->withInput()->with(compact($msgArr));
-			}		
+		// Go to login page
+		if (!$user) {
+			$message = 'username or password is invalid!';
+			$msgType = 'danger';
+			$msgArr = array('message','msgType');
+			return Redirect::back()->withInput()->with(compact($msgArr));
+		} else {
+			return Redirect::action('HomeController@getIndex');	
+		}		
     }
 }

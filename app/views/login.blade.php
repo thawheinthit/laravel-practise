@@ -32,7 +32,7 @@
   	{{ link_to('#', "Forget password?", $attributes = array(), $secure = null) }}
   </p>
   <p>
-  	{{ link_to('user/register', "Create a new account", $attributes = array(), $secure = null) }}
+  	{{ link_to('register', "Create a new account", $attributes = array(), $secure = null) }}
   </p>
 
 </div>

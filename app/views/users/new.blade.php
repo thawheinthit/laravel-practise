@@ -16,8 +16,8 @@
 	  	</div>
 		
 		<div class="form-group">
-		    {{ Form::label('email', 'Email address') }}
-		    {{ Form::text('email',Input::old('email'), array('class'=>'form-control', 'placeholder' => 'Enter email'))  }}
+		    {{ Form::label('contactnumber', 'Contact Number') }}
+		    {{ Form::text('contactnumber',Input::old('contactnumber'), array('class'=>'form-control', 'placeholder' => 'Contact Number'))  }}
 	  	</div>
 
 	  	<div class="form-group">
@@ -28,7 +28,7 @@
 	    	    
 	  	<div class="form-group">
 		    {{ Form::label('inputRole', 'User\'s role') }}
-		    {{ Form::select('inputRole', array('user' => 'User', 'admin'=>'Administrator'), isset($user) ? $user->role : '', array('class' => 'form-control')) }} 
+		    {{ Form::select('inputRole', array('user' => 'User', 'admin'=>'Administrator', 'delivery' => 'Delivery'), isset($user) ? $user->role : '', array('class' => 'form-control')) }} 
 	  	</div>
 		
 	  	<div class="form-group">
