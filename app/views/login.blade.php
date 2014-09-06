@@ -6,8 +6,8 @@
 <div class="col-md-4">
 
 	<div class="form-group">
-	  {{ Form::label('inputEmail', 'Email address') }}
-	  {{ Form::text('inputEmail', '', $attributes = array('class'=>'form-control', 'placeholder' => 'Enter email')) }}
+	  {{ Form::label('inputUsername', 'Username') }}
+	  {{ Form::text('inputUsername', '', $attributes = array('class'=>'form-control', 'placeholder' => 'Username')) }}
   </div>
 	
 	<div class="form-group">
@@ -24,12 +24,12 @@
   </div>
 
 	<div class="form-group">
-	  {{ Form::submit('Sign in', $attribute = array('class'=>'btn btn-default', 'id' => 'btnLogin')) }}
+	  {{ Form::submit('Log in', $attribute = array('class'=>'btn btn-default', 'id' => 'btnLogin')) }}
   </div>
 
   <hr/>
   <p>
-  	{{ link_to('#', "Forget password ?", $attributes = array(), $secure = null) }}
+  	{{ link_to('#', "Forget password?", $attributes = array(), $secure = null) }}
   </p>
   <p>
   	{{ link_to('user/register', "Create a new account", $attributes = array(), $secure = null) }}

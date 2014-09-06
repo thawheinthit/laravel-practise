@@ -8,33 +8,26 @@ class HomeController extends BaseController {
         $this->beforeFilter('guest', ['only' => ['getLogin']]);
         $this->beforeFilter('auth', ['only' => ['getLogout']]);
     }
-    
+    	
 	public function getIndex()
-	{
-		$posts = Post::orderBy('id', 'desc')->paginate(3);
-		$this->layout->title = 'Home Page | Laravel 4 Blog';
-		$this->layout->main = View::make('home')->nest('content','posts.index', compact('posts'));
-	}
-
-	public function getLogin()
     {
-        $this->layout->title = 'login';
+        $this->layout->title = 'Login';
         $this->layout->main = View::make('login');
     }
 
     public function postLogin(){
     	$credentials = array(
-			'email' => Input::get('inputEmail'),
+			'username' => Input::get('inputUsername'),
 			'password' => Input::get('inputPassword')
 		);
-		if( Auth::attempt($credentials)) {
+		if ( Auth::attempt($credentials)) {
 
-		// Incase need to redirect separately	
+			// Incase need to redirect separately	
 			// if(Auth::user()->role == 'admin') {
 			// 	return Redirect::to('admin/dashboard');
 			// }
-			return Redirect::to('admin/dashboard');
-		}else{
+			return Redirect::to('dishmenu');
+		} else {
 			$message = 'username or password is invalid!';
 			$msgType = 'danger';
 			$msgArr = array('message','msgType');
@@ -48,5 +41,34 @@ class HomeController extends BaseController {
     {
         Auth::logout();
         return Redirect::to('/');
+    }
+
+    public function getRegister()
+    {
+    	$this->layout->title = 'Register';
+        $this->layout->main = View::make('register');
+    }
+
+    public function postRegister()
+    {
+    	$user = new User;
+		
+		// Create the user no matter what
+		$user = User::create(array(
+			'name' => Input::get('inputUsername'),	
+			'contact_number' => Input::get('inputContactNumber'),
+			'password' => Hash::make(Input::get('inputPassword')),
+			'role' => 'user'
+		));
+			
+			// Go to login page
+			if (!$user) {
+				return Redirect::to('admin/dashboard');			
+			} else {
+				$message = 'username or password is invalid!';
+				$msgType = 'danger';
+				$msgArr = array('message','msgType');
+				return Redirect::back()->withInput()->with(compact($msgArr));
+			}		
     }
 }

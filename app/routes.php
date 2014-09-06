@@ -48,11 +48,5 @@ Route::group(['prefix' => 'admin', 'before' => 'auth'], function () {
     
 });
 
-
-
 /* Home routes */
 Route::controller('/', 'HomeController');
-
-
-
-
