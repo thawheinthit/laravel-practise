@@ -11,9 +11,9 @@ class HomeController extends BaseController {
     
 	public function getIndex()
 	{
-		$posts = Post::orderBy('id', 'desc')->paginate(3);
-		$this->layout->title = 'Home Page | Laravel 4 Blog';
-		$this->layout->main = View::make('home')->nest('content','posts.index', compact('posts'));
+		$dishes = Dish::orderBy('id', 'desc')->paginate(3);
+		$this->layout->title = 'Home Page | ';
+		$this->layout->main = View::make('home')->nest('content','dishes.list', compact('dishes'));
 	}
 
 	public function getLogin()

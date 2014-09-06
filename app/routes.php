@@ -3,7 +3,7 @@
 /* Model Bindings */
 Route::model('post', 'Post');
 Route::model('user', 'User');
-
+Route::model('dish', 'Dish');
 
 Route::get('test',function(){
     $posts = User::find(1)->posts();
@@ -12,6 +12,33 @@ Route::get('test',function(){
 /* User routes */
 Route::get('/posts/{post}/show', ['as' => 'post.show', 'uses' => 'PostsController@showPost']);
 // Route::post('/post/{post}/comment', ['as' => 'comment.new', 'uses' => 'CommentController@newComment']);
+
+
+/*dishes's get routes*/
+Route::get('/dishes/list', ['as' => 'dish.list', 'uses' => 'DishesController@listDish']);
+Route::get('/dishes/new', ['as' => 'dish.new', 'uses' => 'DishesController@newDish']);
+Route::get('/dishes/{dish}/show', ['as' => 'dish.show', 'uses' => 'DishesController@showDish']);
+Route::get('/dishes/{dish}/edit', ['as' => 'dish.edit', 'uses' => 'DishesController@editDish']);
+Route::get('/dishes/{dish}/delete', ['as' => 'dish.delete', 'uses' => 'DishesController@deleteDish']);
+
+/*dishes's post routes*/
+Route::post('/dishes/save', ['as' => 'dish.save', 'uses' => 'DishesController@saveDish']);
+Route::post('/dishes/{dish}/update', ['as' => 'dish.update', 'uses' => 'DishesController@updateDish']);
+
+
+
+/*orders's get routes*/
+Route::get('/orders/list', ['as' => 'order.list', 'uses' => 'OrdersController@listOrder']);
+Route::get('/orders/new', ['as' => 'order.new', 'uses' => 'OrdersController@newOrder']);
+Route::get('/orders/{order}/show', ['as' => 'order.show', 'uses' => 'OrdersController@showOrder']);
+Route::get('/orders/{order}/edit', ['as' => 'order.edit', 'uses' => 'OrdersController@editOrder']);
+Route::get('/orders/{order}/delete', ['as' => 'order.delete', 'uses' => 'OrdersController@deleteOrder']);
+
+/*orders's post routes*/
+Route::post('/orders/save', ['as' => 'order.save', 'uses' => 'OrdersController@saveOrder']);
+Route::post('/orders/{order}/update', ['as' => 'order.update', 'uses' => 'OrdersController@updateOrder']);
+
+
 
 
 /* Admin routes */
@@ -35,16 +62,7 @@ Route::group(['prefix' => 'admin', 'before' => 'auth'], function () {
     Route::post('/users/{user}/update', ['as' => 'user.update', 'uses' => 'UsersController@updateUser']);
     
     
-    /*posts's get routes*/
-    Route::get('/posts/list', ['as' => 'post.list', 'uses' => 'PostsController@listPost']);
-    Route::get('/posts/new', ['as' => 'post.new', 'uses' => 'PostsController@newPost']);
-    Route::get('/posts/{post}/edit', ['as' => 'post.edit', 'uses' => 'PostsController@editPost']);
-    Route::get('/posts/{post}/delete', ['as' => 'post.delete', 'uses' => 'PostsController@deletePost']);
     
-    /*posts's post routes*/
-    Route::post('/posts/save', ['as' => 'post.save', 'uses' => 'PostsController@savePost']);
-    Route::post('/posts/{post}/update', ['as' => 'post.update', 'uses' => 'PostsController@updatePost']);    
-        
     
 });
 

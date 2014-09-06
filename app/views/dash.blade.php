@@ -1,11 +1,13 @@
 
 <div class="landing_title col-md-12">
     <div class="col-md-9">
-        <span class="pate_title">User</span>
+        <span class="pate_title"><!-- Sub Name is Here --></span>
     </div>
 
     <div class="col-md-3 user_content">
-         @include('layouts.usernav')
+
+    	<!-- Need to include layouts.usernav -->
+
     </div>
 </div>
 
