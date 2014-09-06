@@ -10,7 +10,7 @@ class UsersController extends \BaseController {
 	 */
 	public function listUser()
 	{
-		$users = User::orderBy('id', 'desc')->paginate(3);
+		$users = User::where('role', '=', 'user')->orderBy('id', 'desc')->paginate(3);
         $this->layout->title = 'User listings';     
         $this->layout->main = View::make('dash')->nest('content', 'users.list', compact('users'));
 	}
@@ -37,28 +37,19 @@ class UsersController extends \BaseController {
 	{
 		$user = [
             'username' => Input::get('username'),
-            'email' => Input::get('email'),
+            'contact_number' => Input::get('contactnumber'),
             'password' => Input::get('password'),
         ];
-        $rules = [
-            'username' => 'required',
-            'email' => 'required | email',
-            'password' => 'required',
-        ];
-
-        $valid = Validator::make($user, $rules);
-        if ($valid->passes()) {
-            $user = new User($user);
-            $user->password = Hash::make(Input::get('password'));
-            $user->save();
-            /* redirect back to the form portion of the page */
-            $message = "{$user->username} has been created";
-			$msgTitle = 'Success!';
-			$msgArr = array('message','msgTitle');
-            return Redirect::route('user.edit', $user->id)->with(compact($msgArr));
-        } else {
-            return Redirect::to(URL::previous() . '#reply')->withErrors($valid)->withInput();
-        }
+        
+        $user = new User($user);
+        $user->password = Hash::make(Input::get('password'));
+        $user->save();
+        
+        /* redirect back to the form portion of the page */
+        $message = "{$user->username} has been created";
+		$msgTitle = 'Success!';
+		$msgArr = array('message','msgTitle');
+        return Redirect::route('user.edit', $user->id)->with(compact($msgArr));        
 	}
 
 	/**
@@ -97,33 +88,20 @@ class UsersController extends \BaseController {
 	{
 		$data = [
             'username' => Input::get('username'),
-            'email' => Input::get('email'),
+            'contact_number' => Input::get('contactnumber'),
+            'role' => Input::get('inputRole')
         ];
-        $rules = [
-            'username' => 'required',
-            'email' => 'required | email',
-        ];
-        $valid = Validator::make($data, $rules);
-        if ($valid->passes()) {
-            $user->username = $data['username'];
-            $user->email = $data['email'];
+        
+        $user->username = $data['username'];
+        $user->contact_number = $data['contact_number'];
+        $user->role = $data['role'];
 
-            if (count($user->getDirty()) > 0) /* avoiding resubmission of same content */ {
-                $user->save();
-	            $message = "{$user->username} has been updated";
-				$msgTitle = 'Success!';
-				$msgArr = array('message','msgTitle');
-	            return Redirect::back()->withInput()->with(compact($msgArr));
-            } else{
-            	$message = "Nothing to update";
-				$msgTitle = 'Same content!';
-				$msgType = 'info';
-				$msgArr = array('message','msgTitle','msgType');
-				return Redirect::back()->withInput()->with(compact($msgArr));
-            }
-        } else
-            return Redirect::back()->withErrors($valid)->withInput();
-	}
+        $user->save();
+	    $message = "{$user->username} has been updated";
+		$msgTitle = 'Success!';
+		$msgArr = array('message','msgTitle');
+	    return Redirect::back()->withInput()->with(compact($msgArr));
+    }
 
 	/**
 	 * Remove the specified resource from storage.
@@ -139,10 +117,6 @@ class UsersController extends \BaseController {
 		$msgTitle = 'Success!';
 		$msgArr = array('message','msgTitle');
         return Redirect::route('user.list')->with(compact($msgArr));
-	}
-
-	public function listPosts(User $user){
-		return $user->posts;
 	}
 
 }

@@ -9,8 +9,6 @@
 
   @include('layouts.notification')
 
-
-
 <div class="col-lg-12" >
             <div class="col-lg-3">
             </div>

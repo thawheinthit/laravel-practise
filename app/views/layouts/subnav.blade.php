@@ -1,10 +1,10 @@
 <ul class="nav nav-tabs" role="tablist">
   <li class="active">
-  	<a href="{{ URL::to('admin/dashboard') }}"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a>
+  	<a href="{{ URL::to('dishes/list') }}"><span class="glyphicon glyphicon-dashboard"></span> Dishes</a>
   </li>
 
   <li>
-  	<a href="{{ URL::to('#') }}"><span class="glyphicon glyphicon-music"></span> Menu Link1</a>
+  	<a href="{{ URL::to('#') }}"><span class="glyphicon glyphicon-list-alt"></span> Users</a>
   </li>
 
   <li>

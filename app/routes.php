@@ -41,7 +41,6 @@ Route::post('/orders/{order}/update', ['as' => 'order.update', 'uses' => 'Orders
 
 Route::post('upload',['as'=>'upload','uses'=>'UploadController@postIndex']);
 
-
 /* Admin routes */
 Route::group(['prefix' => 'admin', 'before' => 'auth'], function () {
 
@@ -62,9 +61,10 @@ Route::group(['prefix' => 'admin', 'before' => 'auth'], function () {
     Route::post('/users/save', ['as' => 'user.save', 'uses' => 'UsersController@saveUser']);
     Route::post('/users/{user}/update', ['as' => 'user.update', 'uses' => 'UsersController@updateUser']);
     
-    
-    
-    
+    /*Delivery's get routes*/
+    Route::get('/deliveries/list', ['as' => 'deliveries.list', 'uses' => 'DeliveryController@getIndex']);
+    Route::get('/deliveries/manage', ['as' => 'deliveries.manage', 'uses' => 'DeliveryController@getManage']);
+    Route::get('/deliveries/deleted', ['as' => 'deliveries.completed', 'uses' => 'DeliveryController@getCompleted']);
 });
 
 /* Home routes */
