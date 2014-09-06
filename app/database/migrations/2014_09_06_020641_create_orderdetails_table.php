@@ -16,7 +16,7 @@ class CreateOrderdetailsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('order_number');
-			$table->int('dish_id');
+			$table->integer('dish_id');
 			$table->timestamps();
 		});
 	}
