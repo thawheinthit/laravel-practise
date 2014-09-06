@@ -7,8 +7,11 @@
     <!-- Bootstrap -->
     
     {{ HTML::style('assets/css/bootstrap.css') }}
+    {{ HTML::style('assets/css/bootstrap-responsive.css') }}
     {{ HTML::style('assets/css/style.css') }}
     {{ HTML::style('assets/css/no-more-tables.css') }}
+    
+    {{ HTML::style('assets/css/main.css') }}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,20 +31,19 @@
   });
   </script>
   </head>
-  <body id="home">
+  <body id="home" style="background-color: #e7ecea">
   
   <!-- Start Nav Bar -->
   @if (!Auth::check())
-	<div class="nav-bar">
+	<!-- <div class="nav-bar">
     @include('layouts.topnav')
-	</div>
+	</div> -->
   @endif
   <!-- End Nav Bar -->
 
 
-  	<div class="container" style="margin-top: 10px;">
+  	<div class="container">
 
-	  	<div class="row">
 	  	<div class="col-md-12">
 
         @if (Auth::check())
@@ -53,7 +55,8 @@
         @endif
         
 	  	</div>
-	  	</div>
+
+      
       {{$main}}
       
   	</div>

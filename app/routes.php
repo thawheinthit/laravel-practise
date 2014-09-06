@@ -20,6 +20,7 @@ Route::get('/dishes/new', ['as' => 'dish.new', 'uses' => 'DishesController@newDi
 Route::get('/dishes/{dish}/show', ['as' => 'dish.show', 'uses' => 'DishesController@showDish']);
 Route::get('/dishes/{dish}/edit', ['as' => 'dish.edit', 'uses' => 'DishesController@editDish']);
 Route::get('/dishes/{dish}/delete', ['as' => 'dish.delete', 'uses' => 'DishesController@deleteDish']);
+Route::get('/dishes/upload/{dish}', ['as' => 'dish.upload', 'uses' => 'DishesController@uploadDish']);
 
 /*dishes's post routes*/
 Route::post('/dishes/save', ['as' => 'dish.save', 'uses' => 'DishesController@saveDish']);
@@ -38,7 +39,7 @@ Route::get('/orders/{order}/delete', ['as' => 'order.delete', 'uses' => 'OrdersC
 Route::post('/orders/save', ['as' => 'order.save', 'uses' => 'OrdersController@saveOrder']);
 Route::post('/orders/{order}/update', ['as' => 'order.update', 'uses' => 'OrdersController@updateOrder']);
 
-
+Route::post('upload',['as'=>'upload','uses'=>'UploadController@postIndex']);
 
 
 /* Admin routes */

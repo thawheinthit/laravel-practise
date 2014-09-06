@@ -1,0 +1,428 @@
+
+
+@import url(http://fonts.googleapis.com/css?family=Helvetica:400,700);
+
+body {
+    background-color: #ffffff;
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #555;
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Titles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Helvetica', sans-serif;
+    font-weight: normal;
+    color: #333;
+}
+
+h1 {
+    font-size: 48px;
+    font-family: "Helvetica Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+}
+h2 {
+    font-size: 25px;
+    font-family: "Helvetica Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+}
+
+h3 {
+    font-size: 28px;
+    color: #bdc2c9;
+    font-family: "Helvetica Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+   
+}
+
+
+
+
+
+
+/* Paragraph & Typographic */
+p {
+    line-height: 28px;
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+.centered {
+    text-align: center;
+}
+
+/* Links */
+a {
+    color: #74777b;
+    word-wrap: break-word;
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
+    a:hover,
+    a:focus {
+        color: #7b7b7b;
+        text-decoration: none;
+        outline: 0;
+    }
+
+    a:before,
+    a:after {
+        -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+        -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+        -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+        -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+        transition: color 0.1s ease-in, background 0.1s ease-in;
+    }
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+
+.navbar {
+    text-transform: uppercase;
+    margin-bottom: 0px;
+}
+
+.navbar-inverse {
+    padding-bottom: 70px;
+    padding-top: 70px;
+}
+
+.navbar-inverse {
+    background-color: #1abc9c;
+    border-color: #16a085;
+}
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: white;
+    }
+
+        .navbar-inverse .navbar-nav > li > a:hover {
+            color: #222222;
+        }
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: transparent;
+}
+
+.progress-bar-theme {
+    background-color: #1abc9c;
+}
+
+
+/* Helpers */
+
+.mt {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.pt {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+
+/* +++++ WRAP SECTIONS +++++ */
+
+#ww {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    background-color: #e7ecea;
+}
+#sub_container {
+    padding:10px 30px 10px 30px;
+}
+
+
+#footer {
+    background-color: #2f2f2f;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+    #footer p {
+        color: white;
+    }
+
+    #footer h4 {
+        color: white;
+        text-transform: uppercase;
+        padding-bottom: 20px;
+    }
+
+
+/* +++++ Color Wraps / Blog Page +++++ */
+
+#grey {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: #f2f2f2;
+}
+
+#white {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: #ffffff;
+}
+
+
+
+/* Blog Date*/
+bd {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #d2d2d2;
+    font-weight: 700;
+}
+
+/* Blog Author*/
+ba {
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+/* Blog Quote */
+.bq {
+    font-size: 22px;
+    padding-top: 30px;
+}
+
+/* Blog Tags */
+bt {
+    font-size: 12px;
+}
+
+/* ================== PORTFOLIO IMAGES HOVER EFFECT ================== */
+/* Effects also are controled by hover.zoom.js */
+.zoom {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background: transparent url(../img/loader.gif) no-repeat center;
+}
+
+
+.zoomOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: none;
+    background-image: url(../img/zoom.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.zoom2 {
+    opacity: 1;
+}
+
+    .zoom2:hover {
+        opacity: 0.5;
+    }
+
+/* glyphicon Configuration */
+
+.glyphicon {
+    font-size: 40px;
+    color: #1abc9c;
+}
+
+
+
+
+
+.circular-left {
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background: url(http://link-to-your/image.jpg) no-repeat;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+
+.circular-right {
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background: url(http://link-to-your/image.jpg) no-repeat;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+
+.img-thumbnail {
+    background-color: #e7ecea;
+    border: none;
+    display: inline-block;
+    height: auto;
+    line-height: 1.42857;
+    max-width: 100%;
+    padding: 4px;
+    transition: all 0.2s ease-in-out 0s;
+}
+
+.clear {
+    clear:both;
+}
+
+.simplebox {
+  outline: none;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+.divider {
+    background-color: #e5e5e5;
+    border-bottom: 1px solid #cccccc;
+    height: 1px;
+    margin: 9px 1px;
+    overflow: hidden;
+}
+.input-lg {
+    border-radius: 6px;
+    font-size: 18px;
+    height:36px;
+    line-height: 1.33;
+    padding: 10px 16px;
+}
+.login_container {
+    background: #fff; border-radius: 4px; padding: 30px 15px 10px 15px;margin-top: 50px ;
+}
+
+.login a {
+    color: #74777b;
+    font-size:20px;
+    word-wrap: break-word;
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+    font-weight:normal;
+   
+    display:block;
+}
+.media-body h2 {
+    font-family: "Helvetica Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    font-size: 25px;
+    font-weight: 300;
+}
+.breadcrumb {
+    background-color: #e7ecea !important;
+    border-radius: 4px;
+    list-style: none outside none;
+    margin-bottom: 20px;
+    padding: 8px 15px;
+}
+.list-group {
+    margin-bottom: 0px !important;
+    padding-left: 0;
+}
+.badge {
+    background-color: #999999;
+    border-radius: 10px;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    min-width: 10px;
+    padding: 3px 7px;
+    text-align: center;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+.product-list {
+    margin: 0;
+    padding: 0;
+}
+.product-list li {
+    list-style: none outside none;
+    margin: 0 0 -1px -1px;
+    padding: 0;
+}
+.product-list li .item {
+    border-bottom: 1px solid #c2c2c2;
+    border-left: 1px solid #c2c2c2;
+    border-top: 1px solid #c2c2c2;
+   
+    list-style: none outside none;
+    margin-right: 0;
+    margin-top: -1px;
+    padding: 10px;
+}
+.product-list li .item .line-break {
+    border-top: 1px solid #c2c2c2;
+    clear: both;
+}
+.col-md-12 {
+    width: 100%;
+}
+.link-green {
+    color:#50ac87;
+}
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.list-group-item {
+    background-color: #ffffff;
+    border: 1px solid #50ac87;
+    display: block;
+    margin-bottom: -1px;
+    padding: 10px 15px;
+    position: relative;
+    color:#50ac87;
+}
+
+.list-group-item a{
+   
+    color:#50ac87;
+}
+.badge {
+   background-color:#50ac87;
+}
+
+.thumbnail {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 0px;
+    display: block;
+    line-height: 1.42857;
+    margin-bottom: 0px;
+    padding: 4px;
+    transition: all 0.2s ease-in-out 0s;
+}

@@ -3,12 +3,10 @@
     @include('layouts.notification')
 </div>
 <!-- End Notification -->
-
 <!-- Start List Table -->
 {{ Form::open(['route'=>['dish.update',$dish->id]]) }}
 <div class="col-md-12" style="margin:10px 0 0 0;">
 	<div class="col-md-4">
-		
 
 		<div class="form-group">
 		    {{ Form::label('name', 'Name') }}
@@ -31,6 +29,12 @@
 	  	</div>
 
 	  	
+	</div>
+	<div class="col-md-4">
+		<div class="form-group">
+			<img src="{{'/dishes/'.$dish->filename}}" style="width:120px;height: 120px;" alt="{{$dish->name}}"/><br/>
+			{{HTML::linkRoute('dish.upload','Edit',$parameters = array($dish->id),$attributes = array('class' => ''))}}
+		</div>
 	</div>
 </div>
 {{Form::close()}}

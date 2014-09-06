@@ -27,6 +27,12 @@ class DishesController extends \BaseController {
         $this->layout->main = View::make('dash')->nest('content', 'dishes.new');
 	}
 
+
+	public function uploadDish(Dish $dish){
+		$this->layout->title = "Upload images for {$dish->name}";
+		$this->layout->main = View::make('dash')->nest('content', 'dishes.image',compact('dish'));
+	}
+
 	/**
 	 * Store a newly created resource in storage.
 	 * POST /dishes
@@ -81,6 +87,9 @@ class DishesController extends \BaseController {
 	public function editDish(Dish $dish)
 	{
 		$this->layout->title = "Edit Dish {$dish->name}";
+		$image = Image::where("used_by", "=", "{$dish->id}")->firstOrFail();
+		$dish->filename = $image->filename;
+		
         $this->layout->main = View::make('dash')->nest('content', 'dishes.edit', compact('dish'));
 	}
 

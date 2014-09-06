@@ -1,4 +1,4 @@
-<div class="col-md-12">
+
   @if(Session::has('message') || $errors->has())
   <div id="notification" style="margin-top:5px">
     <!-- info, success, warning, danger -->
@@ -22,4 +22,3 @@
   </div>
   <div class="clr"></div>
 @endif
-</div>

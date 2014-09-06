@@ -16,8 +16,9 @@
 				<thead class="cf">          
 			    	<tr>
 			            <th class="header" width="20%">Name</th>
+			            <th class="header" width="20%">Image</th>
 			            <th class="header" width="40%">Description</th>
-			            <th class="header" width="5%">Price</th>
+						<th class="header" width="5%">Price</th>
 			       		<th class="header" style="transparent:true;" width="10%">Actions</th>
 			    	</tr>
 				</thead>
@@ -26,6 +27,7 @@
 					@foreach($dishes as $dish)
 			            <tr>
 			                <td>{{$dish->name}}</td>
+			                <td>Image</td>
 			                <td>{{$dish->description}}</td>
 			                <td align="center">
 			                	{{$dish->price}}
